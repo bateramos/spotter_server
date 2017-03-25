@@ -23,6 +23,6 @@ module.exports = (admin) =>
         result.filter(r => !tag || r.val().tags && r.val().tags.includes(tag)).map(r => ({ value : r.val(), id : r.key })))
       ).catch(e => {
         res.status(400).send(e);
-      })
+      });
     });
   };
