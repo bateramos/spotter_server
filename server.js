@@ -1,5 +1,5 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 
 const admin = require('firebase-admin');
 const GeoFire = require('geofire');
@@ -21,5 +21,5 @@ app.get('/addPin', require('./functions/addPin')(admin));
 app.get('/getPins', require('./functions/getPins')(admin));
 
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+  console.log('Example app listening on port 3000!');
+});
