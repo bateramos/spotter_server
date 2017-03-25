@@ -4,9 +4,11 @@ const app = express()
 const admin = require('firebase-admin');
 const GeoFire = require('geofire');
 
+const env = require('./env');
+
 admin.initializeApp({
-  credential: admin.credential.cert(require('./keys/spotter-5bd0542ca9b5.json')),
-  databaseURL: "https://spotter-9871c.firebaseio.com"
+  credential: admin.credential.cert(require('./keys/spotter-key.json')),
+  databaseURL: env.firebaseDatabaseUrl 
 });
 
 app.get('/', function (req, res) {
