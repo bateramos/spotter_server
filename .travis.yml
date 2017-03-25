@@ -3,4 +3,4 @@ node_js:
   - "iojs"
   - "7"
 script:
-  make lint
+  npm run lint
