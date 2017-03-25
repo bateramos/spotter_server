@@ -6,6 +6,8 @@ module.exports = (admin) =>
     const longitude = parseFloat(req.query.longitude);
     const latitude = parseFloat(req.query.latitude);
 
+    const tags = tag ? tag.split(',') : [];
+
 	  const firebaseRef = admin.database().ref('/pins').push();
 	  const geoFire = new GeoFire(firebaseRef);
 
@@ -13,7 +15,7 @@ module.exports = (admin) =>
 	    .then(() => {
         firebaseRef.once("value", (snapshot) => {
           const val = snapshot.val();
-          firebaseRef.set({ g : val.position.g, l : val.position.l, position : null, tag : tag});
+          firebaseRef.set({ g : val.position.g, l : val.position.l, position : null, tags});
           res.status(200).send();
         }, (error) => {
           res.status(500).send(error);
