@@ -1,4 +1,4 @@
-// rename this file to makefile
+## rename this file to makefile
 all: lint
 	PROJECT=YourProjectName-Dev npm run deploy
 
