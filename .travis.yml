@@ -3,5 +3,5 @@ node_js:
   - "iojs"
   - "7"
 script:
-  mv copy.makefile makefile
+  mv copy.makefile makefile &&
   make lint
