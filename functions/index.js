@@ -10,3 +10,4 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 exports.addPin = functions.https.onRequest(require('./addPin')(admin));
 exports.getPins = functions.https.onRequest(require('./getPins')(admin));
+exports.getTags = functions.https.onRequest(require('./getTags')(admin));
