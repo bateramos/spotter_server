@@ -19,6 +19,7 @@ app.get('/', function (req, res) {
 
 app.get('/addPin', require('./functions/addPin')(admin));
 app.get('/getPins', require('./functions/getPins')(admin));
+app.get('/getTags', require('./functions/getTags')(admin));
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
