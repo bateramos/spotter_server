@@ -1,13 +1,16 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const GeoFire = require('geofire');
+
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+app.use(bodyParser.json());
 
 admin.initializeApp(functions.config().firebase);
 
-exports.helloWorld = functions.https.onRequest((request, response) => {
- response.send("Hello from Firebase!");
-});
+// exports.getTags = functions.https.onRequest(require('./getTags')(admin));
 
-exports.addPin = functions.https.onRequest(require('./addPin')(admin));
-exports.getPins = functions.https.onRequest(require('./getPins')(admin));
-exports.getTags = functions.https.onRequest(require('./getTags')(admin));
+app.use('/pins', require('./routes/pins')(admin));
+
+exports.serviceV1 = functions.https.onRequest(app);

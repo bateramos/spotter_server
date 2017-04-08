@@ -4,7 +4,9 @@
   "dependencies": {
     "firebase-admin": "^4.1.2",
     "firebase-functions": "^0.5",
-    "geofire": "^4.1.2"
+    "geofire": "^4.1.2",
+    "express": "^4.15.2",
+    "body-parser": "^1.17.1"
   },
   "private": true
 }
