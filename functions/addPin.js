@@ -2,9 +2,9 @@ const GeoFire = require('geofire');
 
 module.exports = (admin) => 
 	(req, res) => {
-    const tag = req.query.tag;
-    const longitude = parseFloat(req.query.longitude);
-    const latitude = parseFloat(req.query.latitude);
+    const tag = req.body.tag;
+    const longitude = req.body.longitude;
+    const latitude = req.body.latitude;
 
     const tags = tag ? tag.split(',') : [];
 

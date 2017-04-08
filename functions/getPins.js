@@ -5,8 +5,8 @@ module.exports = (admin) =>
     const firebaseRef = admin.database().ref('/pins');
     const geoFire = new GeoFire(firebaseRef);
 
-    const longitude = parseFloat(req.query.longitude);
-    const latitude = parseFloat(req.query.latitude);
+    const longitude = req.query.longitude;
+    const latitude = req.query.latitude;
     const tag = req.query.tag;
 
     const geoQuery = geoFire.query({ center : [latitude, longitude], radius : 1000000.5 });
