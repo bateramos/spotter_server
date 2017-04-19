@@ -14,10 +14,16 @@ admin.initializeApp({
   databaseURL: env.firebaseDatabaseUrl 
 });
 
-// app.get('/addPin', require('./functions/addPin')(admin));
-// app.get('/getPins', require('./functions/getPins')(admin));
-// app.get('/getTags', require('./functions/getTags')(admin));
+function fibonacci(n) {
+ return n < 1 ? 0
+      : n <= 2 ? 1
+      : fibonacci(n - 1) + fibonacci(n - 2);
+}
 
+app.get('/fibonacci', (req, res) => {
+  const result = fibonacci(40);
+  res.send({ result });
+})
 app.use('/pins', require('./functions/routes/pins')(admin));
 
 app.listen(3000, function () {
