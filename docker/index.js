@@ -78,6 +78,7 @@ function handleStats() {
       .filter(s => s.instances)
       .filter(s => !s.lastPreScaleCount || s.lastPreScaleCount != s.instances.length)
       .filter(s => s.instances && s.instances.length > 1)
+      .filter(s => s.instances.filter(i => i.info && i.info.cpu == 0).length > 1)
       .reduce((acc, s) => {
         return s.instances.map(i => ({instance : i, service : s}));
       }, [])
@@ -86,6 +87,7 @@ function handleStats() {
     const serviceToScale = services
       .filter(s => s.instances)
       .filter(s => !s.lastPreScaleCount || s.lastPreScaleCount != s.instances.length)
+      .filter(s => s.instances.filter(i => i.info && i.info.cpu < 20).length === 0)
       .reduce((acc, s) => {
         return acc.concat(s.instances.map(i => ({instance : i, service : s})));
       }, [])
